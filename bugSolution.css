@@ -1,0 +1,23 @@
+/* bugSolution.css */
+
+/* Method 1: JavaScript Workaround */
+/* Add an event listener that re-calculates element dimensions after the page has fully loaded */
+window.addEventListener('load', function() {
+  const element = document.getElementById('myElement');
+  // Recalculate styles here, perhaps using element.style.width = ... 
+});
+
+/* Method 2: CSS Restructuring (if possible) */
+/*  Alter the structure to ensure the parent's dimensions are resolved before using calc().  
+This might involve changing the order of declarations or using different CSS properties. 
+For example, consider adding explicit widths to parent containers. */
+#parent {
+  width: 500px; /* Add explicit width */
+}
+#myElement {
+  width: calc(50% - 20px); 
+}
+/* Method 3: Using viewport units where applicable*/
+#myElement {
+  width: calc(50vw - 20px); /*Consider using viewport units (vw, vh) instead of percentages if possible */
+}
